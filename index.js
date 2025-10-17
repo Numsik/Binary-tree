@@ -38,11 +38,8 @@ class Tree{
 
     }
 }
-function sortedarray(array, start, end){
-    const mid = array.length / 2;
-    const firsthalf = array.slice(0,mid);
-    const secondhalf = array.slice(mid, -1)
-    return {firsthalf, secondhalf}
-}
-console.log(sortedarray([1,5,6,10,5,4]))
 
+
+let test = [1,2,3,4,5,6,7];
+
+balnc = new Tree(test, 1, 6)
