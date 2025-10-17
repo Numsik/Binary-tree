@@ -1,4 +1,5 @@
 //UI
+/*
 const prettyPrint = (node, prefix = '', isLeft = true) => {
   if (node === null) {
     return;
@@ -11,6 +12,25 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
     prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
   }
 };
+*/
+
+const prettyPrint = (node, prefix = '', isLeft = true, output = []) => {
+  if (node === null) {
+    return;
+  }
+  if (node.right !== null) {
+    prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false,output);
+  }
+
+  output.push(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
+
+  if (node.left !== null) {
+    prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true, output);
+  }
+
+  return output;
+};
+
 
 
 class node{
@@ -24,7 +44,8 @@ class node{
 class Tree{
     constructor(array){
         this.root = this.buildTree(array, 0, array.length -1)
-        prettyPrint(this.root)
+        const lines = prettyPrint(this.root)
+        document.body.innerHTML = `<pre>${lines.join('\n')}</pre>`
 
     }
     buildTree(array, start, end){
@@ -40,6 +61,6 @@ class Tree{
 }
 
 
-let test = [1,2,3,4,5,6,7];
+let test = [1,2,3,4,5,6,7,10,15,20];
 
-balnc = new Tree(test, 1, 6)
+balnc = new Tree(test, 1, 6);
