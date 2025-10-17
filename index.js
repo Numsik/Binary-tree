@@ -1,23 +1,4 @@
-function sortedArrayToBSTRecur(arr, start, end) {
-    if (start > end) return null;
-
-    let mid = start + Math.floor((end - start) / 2);
-    let root = new Node(arr[mid]);
-
-    // Divide from middle element
-    root.left = sortedArrayToBSTRecur(arr, start, mid - 1);
-    root.right = sortedArrayToBSTRecur(arr, mid + 1, end);
-
-    return root;
-}
-
-// Function which return BST
-function sortedArrayToBST(arr) {
-    return sortedArrayToBSTRecur(arr, 0, arr.length - 1);
-}
-
-
-
+//UI
 const prettyPrint = (node, prefix = '', isLeft = true) => {
   if (node === null) {
     return;
@@ -42,7 +23,18 @@ class node{
 
 class Tree{
     constructor(array){
-        this.root = this.buildTree
+        this.root = this.buildTree(array, 0, array.length -1)
+        prettyPrint(this.root)
+
+    }
+    buildTree(array, start, end){
+        if (start > end) return null;
+
+        let mid = parseInt((start + end) / 2);
+        let root = new node(array[mid])
+        root.left = this.buildTree(array, start, mid - 1)
+        root.right = this.buildTree(array,mid + 1, end)
+        return root;
 
     }
 }
