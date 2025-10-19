@@ -39,7 +39,7 @@ class Tree {
 
   render() {
     const lines = prettyPrint(this.root);
-    const container = document.querySelector('#tree-display');
+    const container = document.querySelector('.tree-display');
     container.innerHTML = `<pre>${lines.join('\n')}</pre>`;
   }
 }
