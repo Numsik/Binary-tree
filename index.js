@@ -55,4 +55,5 @@ btnsend.addEventListener('click', () => {
   const list = numbers.split(/\s+/).map(Number);
   const updatedTree = new Tree(list);
   updatedTree.render();
+  input.value = ""
 });

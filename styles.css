@@ -1,16 +1,18 @@
-body {
+body{
     display: flex;
-    justify-content: center; 
-    align-items: center;   
-    height: 100vh;          
-    margin: 0;            
-    background: #f0f0f0;    
+    justify-content: center;
+    padding-top: 200px;
 }
-
-.btnandinpt {
+input{
+    height: 50px;
+}
+button{
+    height: 55px;
+    width: 70px;
+}
+.justbeincenterthankyou{
     display: flex;
-    margin-right: 20PX;                  
-}
-.tree-display{
-    height: 20vh;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
 }
